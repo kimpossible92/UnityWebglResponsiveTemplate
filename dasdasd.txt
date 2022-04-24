@@ -1,3 +1,0 @@
-https://kimpossible92.github.io/testgl/
-git remote add origin https://github.com/kimpossible92/UnityWebglResponsiveTemplate.git
-в понедельник были дела

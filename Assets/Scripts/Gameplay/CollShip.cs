@@ -24,6 +24,7 @@ public class CollShip : MonoBehaviour
     public static Vector2 bombermanPosition, bombermanPositionRounded;
     Vector2 dir2; int dr = 5;
     Animator anim; Vector3 startpos1;
+    Quaternion Rotstart;
     [SerializeField]GameObject CanvasMenu;
     [SerializeField] Statistics StaticMenu;
     [SerializeField] GameObject sphere2;
@@ -43,6 +44,7 @@ public class CollShip : MonoBehaviour
         dead = false;
         life = 100;
         startpos1 = transform.position;
+        Rotstart = transform.rotation;
     }
     bool visibleMenu=false;
     [HideInInspector]public bool IsMenu = false;
@@ -72,6 +74,7 @@ public class CollShip : MonoBehaviour
         {
             //Application.LoadLevel("SampleScene"); 
             transform.position = startpos1;
+            transform.rotation = Rotstart;
             foreach (var pi in FindObjectsOfType<Gameplay.Spawners.Spawner>())
             {
                 pi.StopSpawn();
@@ -152,6 +155,7 @@ public class CollShip : MonoBehaviour
         Level += 1;
         //transform.position = FinishGO.transform.position + Vector3.forward;
         startpos1 = transform.position;
+        Rotstart = transform.rotation;
         GameObject.Find("Status").transform.Find("Canvas2").transform.Find("Button").gameObject.SetActive(true);
 
         //PlayerPrefs.SetInt("Level", Level);
